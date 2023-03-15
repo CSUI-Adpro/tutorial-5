@@ -3,6 +3,7 @@ package id.ac.ui.cs.advprog.tutorial5.service.medicine;
 import id.ac.ui.cs.advprog.tutorial5.dto.MedicineRequest;
 import id.ac.ui.cs.advprog.tutorial5.model.medicine.Medicine;
 import id.ac.ui.cs.advprog.tutorial5.repository.MedicineRepository;
+import id.ac.ui.cs.advprog.tutorial5.model.medicine.MedicineCategory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class MedicineServiceImpl implements MedicineService {
         Medicine medicine = null;
         medicine = Medicine.builder()
                 .name(request.getName())
-                .category(request.getCategory())
+                .category(Enum.valueOf(MedicineCategory.class, request.getCategory()))
                 .dose(request.getDose())
                 .stock(request.getStock())
                 .price(request.getPrice())
@@ -62,7 +63,7 @@ public class MedicineServiceImpl implements MedicineService {
 
         medicine.setId(id);
         medicine.setName(request.getName());
-//        medicine.setCategory(request.getCategory());
+        medicine.setCategory(Enum.valueOf(MedicineCategory.class, request.getCategory()));
         medicine.setDose(request.getDose());
         medicine.setPrice(request.getPrice());
         medicine.setStock(request.getStock());
