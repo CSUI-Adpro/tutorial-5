@@ -33,8 +33,8 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public Medicine update(Integer id, MedicineRequest request) {
+        // TODO: Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
         if (isMedicineDoesNotExist(id)) {
-            // TODO: Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
             return null;
         }
         Medicine medicine = null;
