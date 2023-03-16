@@ -42,7 +42,7 @@ public class MedicineServiceImpl implements MedicineService {
         Medicine medicine = null;
         medicine = Medicine.builder()
                 .name(request.getName())
-                .category(Enum.valueOf(MedicineCategory.class, request.getCategory()))
+                .category(MedicineCategory.valueOf(request.getCategory()))
                 .dose(request.getDose())
                 .stock(request.getStock())
                 .price(request.getPrice())
@@ -64,13 +64,14 @@ public class MedicineServiceImpl implements MedicineService {
 
         medicine.setId(id);
         medicine.setName(request.getName());
-        medicine.setCategory(Enum.valueOf(MedicineCategory.class, request.getCategory()));
+        medicine.setCategory(MedicineCategory.valueOf(request.getCategory()));
         medicine.setDose(request.getDose());
         medicine.setPrice(request.getPrice());
         medicine.setStock(request.getStock());
         medicine.setManufacturer(request.getManufacturer());
 
-        return this.medicineRepository.save(medicine);
+        this.medicineRepository.save(medicine);
+        return medicine;
     }
 
     @Override
