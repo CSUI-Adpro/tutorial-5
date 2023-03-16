@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
             if (medicine.isEmpty()) {
                 // TODO: DONE
                 // Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
-                throw new MedicineDoesNotExistException(medicine.get().getId());
+                throw new MedicineDoesNotExistException(details.getMedicineId());
             }
             orderDetailsRepository.save(
                     OrderDetails.builder()
@@ -86,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
             if (medicine.isEmpty()) {
                 // TODO: DONE
                 // Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
-                throw new MedicineDoesNotExistException(medicine.get().getId());
+                throw new MedicineDoesNotExistException(details.getMedicineId());
             }
 
             // Update Order includes the updates of OrderDetails.

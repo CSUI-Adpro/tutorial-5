@@ -4,6 +4,7 @@ import id.ac.ui.cs.advprog.tutorial5.dto.MedicineRequest;
 import id.ac.ui.cs.advprog.tutorial5.model.medicine.Medicine;
 import id.ac.ui.cs.advprog.tutorial5.repository.MedicineRepository;
 import id.ac.ui.cs.advprog.tutorial5.model.medicine.MedicineCategory;
+import  id.ac.ui.cs.advprog.tutorial5.exceptions.MedicineDoesNotExistException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class MedicineServiceImpl implements MedicineService {
         // TODO: DONE
         // Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
         if (isMedicineDoesNotExist(id)) {
-            return null;
+            throw new MedicineDoesNotExistException(id);
         }
         Medicine medicine = null;
         medicine = medicineRepository.findById(id).get();
@@ -56,7 +57,7 @@ public class MedicineServiceImpl implements MedicineService {
         // TODO: DONE
         // Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
         if (isMedicineDoesNotExist(id)) {
-            return null;
+            throw new MedicineDoesNotExistException(id);
         }
         Medicine medicine = null;
         medicine = medicineRepository.findById(id).get();
@@ -77,7 +78,7 @@ public class MedicineServiceImpl implements MedicineService {
         // TODO: DONE
         // Lengkapi kode berikut (Pastikan Anda memanfaatkan Exceptions yang ada!)
         if (isMedicineDoesNotExist(id)) {
-            return;
+            throw new MedicineDoesNotExistException(id);
         }
         medicineRepository.deleteById(id);
     }
